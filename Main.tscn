@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Character.gd" type="Script" id=3]
+[ext_resource path="res://LevelNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Connector.gd" type="Script" id=5]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Start-1" type="Line2D" parent="."]
+position = Vector2( -118.087, -494.268 )
+points = PoolVector2Array( 298.438, 702.128, 477.336, 706.371, 578.452, 615.154, 732.602, 678.793, 903.721, 685.157 )
+default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 5 )
+start_conn = NodePath("../../Main/Start")
+start_dir = 1
+end_conn = NodePath("../../Main/Level-1")
+end_dir = 0
+
+[node name="1-2" type="Line2D" parent="."]
+position = Vector2( 448.305, -574.232 )
+scale = Vector2( 1, 1.06636 )
+points = PoolVector2Array( 320.359, 697.615, 334.501, 775.198, 505.621, 776.524, 507.742, 814.321, 340.158, 814.321, 324.602, 893.23 )
+default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 5 )
+start_conn = NodePath("../../Main/Level-1")
+start_dir = 3
+end_conn = NodePath("../../Main/Level-2")
+end_dir = 2
+
+[node name="Start-2" type="Line2D" parent="."]
+position = Vector2( -265.872, 8.48508 )
+points = PoolVector2Array( 441.273, 180.99, 492.185, 362.717, 720.58, 296.249, 1033.83, 383.93 )
+default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 5 )
+start_conn = NodePath("../../Main/Start")
+start_dir = 3
+end_conn = NodePath("../../Main/Level-2")
+end_dir = 0
+
+[node name="2-3" type="Line2D" parent="."]
+position = Vector2( 1178.04, -280.076 )
+scale = Vector2( 1, 1.06636 )
+points = PoolVector2Array( -367.656, 844.824, -216.335, 838.193, -207.142, 709.551, -406.546, 714.193, -416.446, 626.663 )
+default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 5 )
+start_conn = NodePath("../../Main/Level-3")
+start_dir = 1
+end_conn = NodePath("../../Main/Level-2")
+end_dir = 3
+
+[node name="Start" parent="." instance=ExtResource( 4 )]
+margin_left = 130.815
+margin_top = 133.643
+margin_right = 230.815
+margin_bottom = 233.643
+
+[node name="Level-1" parent="." instance=ExtResource( 4 )]
+margin_left = 723.37
+margin_top = 123.744
+margin_right = 823.37
+margin_bottom = 223.744
+
+[node name="Level-2" parent="." instance=ExtResource( 4 )]
+margin_left = 725.491
+margin_top = 327.39
+margin_right = 825.491
+margin_bottom = 427.39
+
+[node name="Level-3" parent="." instance=ExtResource( 4 )]
+margin_left = 731.855
+margin_top = 561.442
+margin_right = 831.855
+margin_bottom = 661.442
+
+[node name="Character" type="Sprite" parent="."]
+position = Vector2( 382.032, 30.6199 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
